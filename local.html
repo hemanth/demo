@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<p><textarea id="persisted-text" rows=5 cols=50></textarea><br />
+<script type="text/javascript">
+  var supported = 'This text will be saved locally, forever.',
+      unsupported = 'Oh no! Your browser does not support localStorage.';
+  if (window.localStorage) {
+      var p = document.querySelector('#persisted-text');
+      if (localStorage.text == null) {
+          localStorage.text = p.value = supported;
+      } else {
+          p.value = localStorage.text;
+      }
+      p.addEventListener('keyup', function(){ localStorage.text = p.value; }, false);
+  } else {
+      document.getElementById('persisted-text').value = unsupported;
+  }
+</script></p>
+</body>
+

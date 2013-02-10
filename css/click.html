@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+       figure { background: #e3e3e3; display: block; float: left;}
+       #zoom {
+          width: 200px; 
+          -webkit-transition: width 1s;
+          -moz-transition: width 1s;
+          -o-transition: width 1s;
+          transition: width 1s;
+      }
+
+     /* Compliance = IE8+, Firefox 2+, Safari, Chrome, Opera 10+ */
+      #zoom:target {
+         width: 400px;
+      }
+    </style>
+</head>
+<body>
+   <h1> "Click" Effect with CSS </h1>
+   <figure>
+      <img id="zoom" src="http://www.h3manth.com/Hemanth.HM.jpg" alt="EE" />
+      <figcaption>
+         <ul>
+            <li>
+               <a href="#zoom">Zoom In</a>
+            </li>
+            <li>
+               <a href="#">Zoom Out</a>
+            </li>
+         </ul>
+      </figcaption>
+   </figure>
+</body>
+</html>

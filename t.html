@@ -1,0 +1,19 @@
+<html>
+<body>
+<div dropzone="copy file:image/png file:image/gif file:image/jpeg" ondrop="receive(event, this)">
+ <p>Drop an image here to have it displayed.</p>
+</div>
+</body>
+<script>
+ function receive(event, element) {
+   var data = event.dataTransfer.items;
+   for (var i = 0; i < data.length; i += 1) {
+     if ((data[i].kind == 'file') && (data[i].type.match('^image/'))) {
+       var img = new Image();
+       img.src = window.createObjectURL(data[i].getAsFile());
+       element.appendChild(img);
+     }
+   }
+ }
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<style>
+p{ outline: 1px dotted #ff0000;}
+</style>
+<title>
+PostMessage Demo
+</title>
+<body>
+<iframe src="http://h3manth.com/demo/postMessage/iframe.html" id="if"></iframe>
+<p id='res' contenteditable>Type your message and hit send </p>
+<input type="button" value='send' id='send'></input>
+<script>
+var frame = document.getElementById("if").contentWindow;
+frame.onmessage = function(e) {
+    frame.document.body.innerHTML += "Message from "+e.origin+" "+e.data;
+};
+document.getElementById("send").onclick = function(){
+    var msg = document.getElementById("res").innerHTML;
+    frame.postMessage(msg, "http://h3manth.com/blog");
+}
+</script>
+</body>
+</html>
+

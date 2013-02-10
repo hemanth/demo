@@ -1,0 +1,22 @@
+<html>
+
+<body>
+
+<div id="touch">
+
+Here
+
+</div>
+</body>
+
+<script src="hammer.js"></script>
+<script src="jquery.min.js"></script>
+<script>
+var hammer = new Hammer(document.getElementById('touch'));
+hammer.ontap = function(ev) { alert("tap");
+
+document.write("yes");
+};
+</script>
+
+</html>

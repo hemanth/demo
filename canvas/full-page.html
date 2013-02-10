@@ -1,0 +1,47 @@
+<!doctype html>
+
+<!--[if IE 6]><html lang="en" class="no-js ie6"><![endif]-->
+<!--[if (gt IE 6)|!(IE)]><!--><html lang="en" class="no-js"><!--<![endif]-->
+
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Canvas full page</title>
+	<meta name="description" content="canvas+fullpage">
+	<meta name="hemanth.hm" content="">
+	<script>
+        function draw(){
+  	   // Get the canvas element form the page
+	   var canvas = document.getElementById("canvas");
+
+	   // Make a 2D context
+	   var ctx = canvas.getContext("2d");
+
+	   //resize the canvas to occupy the full page
+
+	  // Get the widow width and height 
+          var W = window.innerWidth;
+	  var H = window.innerHeight;
+
+	   // Set the same to the canvas
+           canvas.width = W;
+	   canvas.height = H; 
+           ctx.fillstyle ='black'
+	   ctx.fillRect(0,0,W,H);
+
+           ctx.fillStyle = '#f00';
+	   ctx.font = 'italic bold 30px sans-serif';
+	   ctx.textBaseline = 'bottom';
+	   ctx.fillText('This is full page canvas!', 50, 100);
+        }	
+        </script>
+
+</head>
+
+<body onload=draw();>
+	<div>
+		<canvas id="canvas">Please use a better browser! </canvas>
+	</div>	
+</body>
+</html>

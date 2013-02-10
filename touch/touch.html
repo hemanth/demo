@@ -1,0 +1,30 @@
+<html>
+
+<body>
+
+<div id="touch">
+
+Here
+
+</div>
+</body>
+
+<script>
+document.addEventListener('touchstart', function(event) {
+    alert(event.touches.length);
+}, false);
+
+document.addEventListener('touchmove', function(event) {
+    event.preventDefault();
+    var touch = event.touches[0];
+    alert("Touch x:" + touch.pageX + ", y:" + touch.pageY);
+}, false);
+
+document.addEventListener('gesturechange', function(event) {
+    event.preventDefault();
+    alert("Scale: " + event.scale + ", Rotation: " + event.rotation);
+}, false);
+
+</script>
+
+</html>

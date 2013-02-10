@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Image to HTML5 Canvas element</title>
+   <style TYPE="text/css">
+     .url { width: 50%; border: 1px solid #999999; padding: 5px; 
+     -webkit-box-shadow:5px 5px 5px #999999; 
+     -moz-box-shadow: 5px 5px 5px #999999; 
+     box-shadow:5px 5px 5px #999999; 
+    }
+   .submit{
+     border: 1px solid #8ec1da;
+     background-color: #ddeef6;
+     border-radius: 4px;
+     -webkit-box-shadow:5px 5px 5px #999999;
+     -moz-box-shadow: 5px 5px 5px #999999;
+     box-shadow:5px 5px 5px #999999;
+     color: #3985a8;
+     text-shadow: 0 1px #fff;
+     padding: 5px 30px;
+   }
+  </style>
+ </head>
+
+  <body>
+     <input type="text" id="url" class="url"  value="Input any Image URL or data-uri and hit =>" onfocus="value=''"> <input type="submit" name="submit" class="submit" value="Img2Canvas" id="img"><br>
+    <div>
+      <canvas id="canvas"></canvas>
+    </div>
+  </body>
+  <script type="application/x-javascript">
+      function draw() { 
+        var canvas = document.getElementById('canvas');
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        var ctx = canvas.getContext('2d');
+      
+        // create new image object to use as pattern
+        var img = new Image();
+        img.src = document.getElementById('url').value;
+        img.onload = function(){
+
+          // create pattern
+          var ptrn = ctx.createPattern(img,'no-repeat');
+          ctx.fillStyle = ptrn;
+          ctx.fillRect(0,0,canvas.width,canvas.height);
+
+        }
+      }
+ 
+      var converter = document.getElementById('img');
+      converter.addEventListener("click",draw);
+  </script>
+ 
+</html>

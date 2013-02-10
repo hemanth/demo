@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>CSS3 Media Query Example</title>
+    <style>
+       #container { background: #e3e3e3; width: 500px; height: 200px;}
+       
+       /* Media Query Magic! */ 
+       @media screen and ( min-width: 1200px) {
+           #container {background: blue;}
+       }
+       
+       @media all and (orientation: portrait) {
+      	   #container {background: red;} 
+       }
+
+    </style>
+</head>
+<body>
+   <h1>Media Query demo, try resizing your browser on desktop and change orientation on a mobile device!</h1>
+   <div id="container"></div>
+   Demo by <a href="h3manth.com">h3manth.com</a>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Vibrator API demo </title>
+  
+  <style type='text/css'>
+    body {
+    padding: 20px;
+}
+
+button {
+    display: block;
+    margin-bottom: 20px;
+}
+
+  </style>
+  
+
+
+<script type='text/javascript'>//<![CDATA[ 
+var VanillaRunOnDomReady = function() {
+document.querySelector("#vibrate-one-second").addEventListener("click", function () {
+    navigator.mozVibrate(1000);
+}, false);
+
+document.querySelector("#vibrate-twice").addEventListener("click", function () {
+    navigator.mozVibrate([200, 100, 200, 100]);
+}, false);
+
+
+document.querySelector("#vibrate-long-time").addEventListener("click", function () {
+    navigator.mozVibrate(5000);
+}, false);
+
+document.querySelector("#vibrate-off").addEventListener("click", function () {
+     navigator.mozVibrate(0);
+ }, false);
+
+}
+
+var alreadyrunflag = 0;
+
+if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", function(){
+        alreadyrunflag=1; 
+        VanillaRunOnDomReady();
+    }, false);
+else if (document.all && !window.opera) {
+    document.write('<script type="text/javascript" id="contentloadtag" defer="defer" src="javascript:void(0)"><\/script>');
+    var contentloadtag = document.getElementById("contentloadtag")
+    contentloadtag.onreadystatechange=function(){
+        if (this.readyState=="complete"){
+            alreadyrunflag=1;
+            VanillaRunOnDomReady();
+        }
+    }
+}
+
+window.onload = function(){
+  setTimeout("if (!alreadyrunflag){VanillaRunOnDomReady}", 0);
+} 
+
+</script>
+
+
+</head>
+<body>
+  <button id="vibrate-one-second">Vibrate once, please!</button>
+
+<button id="vibrate-twice">Vibrate twice</button>
+
+<button id="vibrate-long-time">Vibrate a long time!</button>
+
+<button id="vibrate-off">Turn off current vibration</button>
+    
+ 
+
+
+  
+</body>
+
+
+</html>
+

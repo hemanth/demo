@@ -1,0 +1,43 @@
+<!doctype html>
+
+<!--[if IE 6]><html lang="en" class="no-js ie6"><![endif]-->
+<!--[if (gt IE 6)|!(IE)]><!--><html lang="en" class="no-js"><!--<![endif]-->
+
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Canvas full screen</title>
+	<meta name="description" content="canvas+notepad">
+	<meta name="hemanth.hm" content="">
+        <script type="application/x-javascript">
+        function draw_pad(){
+  	    // Get the canvas element form the page
+	    var canvas = document.getElementById("canvas");
+            canvas.width = 400;
+            canvas.heigth = 800;
+ 
+            // Make a 2D context
+	    var ctx = canvas.getContext("2d");
+            
+           // Set the img 
+           var img = new Image();
+           img.src = "./note.png";
+           
+           // On load of the img, repeat the pattern
+           img.onload = function(){
+             var patrn = ctx.createPattern(img,'repeat');
+             ctx.fillstyle = patrn;
+             ctx.fillRect(0,0,canvas.width,canvas.height);
+           }
+       }
+
+</script>
+
+</head>
+
+<body onload="draw_pad();">
+<canvas id="canvas"> </canvas>
+</body>
+
+</html>
