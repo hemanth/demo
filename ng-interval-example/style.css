@@ -1,0 +1,53 @@
+body {
+  background-color: #eee;
+}
+
+.box {
+  width: 70%;
+  height: 100px;
+  background-color: #fff;
+  margin: 20px auto;
+}
+
+.box h1 {
+  text-align: center;
+  margin: 0;
+  line-height: 100px;
+}
+
+.time {
+  position: relative;
+}
+
+.time:before,
+.time:after {
+  content: '';
+  width: 50%;
+  max-width: 300px;
+  position: absolute;
+  top: 50%;
+  bottom: 15px;
+  left: 10px;
+  z-index: -1;
+  background-color: #777; /* not necessary */
+  -webkit-box-shadow: 0 15px 10px #777;
+  -moz-box-shadow: 0 15px 10px #777;
+  box-shadow: 0 15px 10px #777;
+  
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+
+.time:after {
+  right: 10px;
+  left: auto;
+  
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+}
