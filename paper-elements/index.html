@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Paper elements example.</title>
+  <script src="bower_components/platform/platform.js"></script>
+  <link rel="import" href="./bower_components/core-icons/core-icons.html">
+  <link rel="import" href="./bower_components/core-icons/av-icons.html">
+  <link rel="import" href="./bower_components/paper-fab/paper-fab.html">
+  <link rel="import" href="./bower_components/paper-checkbox/paper-checkbox.html">
+  <link rel="import" href="./bower_components/paper-input/paper-input.html">
+  <link rel="import" href="./bower_components/paper-item/paper-item.html">
+  <link rel="import" href="./bower_components/paper-radio-group/paper-radio-group.html">
+  <link rel="import" href="./bower_components/paper-radio-button/paper-radio-button.html">
+  <link rel="import" href="./bower_components/paper-slider/paper-slider.html">
+  <link rel="import" href="./bower_components/paper-tabs/paper-tabs.html">
+  <link rel="import" href="./bower_components/paper-tabs/paper-tab.html">
+  <link rel="import" href="./bower_components/paper-toast/paper-toast.html">
+  <link rel="import" href="./bower_components/paper-button/paper-button.html">
+  <link rel="import" href="./bower_components/paper-toggle-button/paper-toggle-button.html">
+  <link rel="import" href="./bower_components/paper-icon-button/paper-icon-button.html">
+
+  <polymer-element name="my-element">
+
+    <template>
+      <style>    
+        #paper_toggle_button {
+          left: 150px;
+          top: 180px;
+          position: absolute;
+        }
+        #paper_toast {
+          left: 180px;
+          top: 140px;
+          position: absolute;
+        }
+        #paper_button {
+          left: 150px;
+          top: 180px;
+          position: absolute;
+        }
+        #paper_checkbox {
+          left: 50px;
+          top: 180px;
+          position: absolute;
+        }
+        #paper_fab {
+          left: 40px;
+          top: 240px;
+          position: absolute;
+        }
+        #div {
+          left: 130px;
+          top: 240px;
+          position: absolute;
+        }
+        #paper_icon_button {
+          left: 480px;
+          top: 0px;
+          position: absolute;
+        }
+        #paper_input {
+          left: 50px;
+          top: 80px;
+          position: absolute;
+        }
+        #paper_item {
+          left: 0px;
+          top: 0px;
+          position: absolute;
+        }
+        #paper_radio_button {
+          left: 240px;
+          top: 180px;
+          position: absolute;
+        }
+        #paper_radio_group {
+          left: 230px;
+          top: 250px;
+          position: absolute;
+        }
+        #paper_slider {
+          left: 30px;
+          top: 330px;
+          position: absolute;
+          width: 450px;
+          height: 30px;
+        }
+        #paper_tabs {
+          width: 440px;
+          color: rgb(255, 255, 255);
+          box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 2px;
+          left: 30px;
+          top: 380px;
+          position: absolute;
+          height: 50px;
+          background-color: rgb(0, 188, 212);
+        }
+        #paper_toast1 {
+          left: 790px;
+          top: 170px;
+          position: absolute;
+        }
+        #paper_toast2 {
+          left: 770px;
+          top: 400px;
+          position: absolute;
+        }
+        #paper_toast3 {
+          left: 760px;
+          top: 350px;
+          position: absolute;
+        }
+        #paper_toast4 {
+          left: 740px;
+          top: 350px;
+          position: absolute;
+        }
+        #paper_toast5 {
+          left: 780px;
+          top: 360px;
+          position: absolute;
+        }
+        #paper_toast6 {
+          left: 680px;
+          top: 330px;
+          position: absolute;
+        }
+        #paper_toggle_button1 {
+          left: 1100px;
+          top: 370px;
+        }
+        #paper_toast7 {
+          left: 640px;
+          top: 300px;
+          position: absolute;
+        }
+        #paper_toast8 {
+          left: 710px;
+          top: 330px;
+          position: absolute;
+        }
+        #paper_button1 {
+          left: 40px;
+          top: 450px;
+          position: absolute;
+        }
+      </style>
+      <paper-fab icon="av:play-arrow" id="paper_fab"></paper-fab>
+      <div id="div" layout horizontal>
+        <paper-fab icon="check" id="paper_fab1"></paper-fab>
+      </div>
+      <paper-checkbox label="click me" id="paper_checkbox"></paper-checkbox>
+      <paper-input label="Type something..." willvalidate id="paper_input" layout vertical></paper-input>
+      <paper-item label="Item" icon="settings" id="paper_item" center horizontal layout></paper-item>
+      <paper-radio-group selected="Small" valueattr="label" selectedindex="0" id="paper_radio_group">
+        <paper-radio-button checked label="Small" id="paper_radio_button1"></paper-radio-button>
+        <paper-radio-button label="Medium" id="paper_radio_button2"></paper-radio-button>
+        <paper-radio-button label="Large" id="paper_radio_button3"></paper-radio-button>
+      </paper-radio-group>
+      <paper-slider id="paper_slider"></paper-slider>
+      <paper-tabs selected="0" selectedindex="0" id="paper_tabs">
+        <paper-tab id="paper_tab" active>ITEM ONE</paper-tab>
+        <paper-tab id="paper_tab1">ITEM TWO</paper-tab>
+        <paper-tab id="paper_tab2">ITEM THREE</paper-tab>
+        <paper-tab id="paper_tab3">ITEM FOUR</paper-tab>
+        <paper-tab id="paper_tab4">ITEM FIVE</paper-tab>
+      </paper-tabs>
+      <paper-toggle-button id="paper_toggle_button"></paper-toggle-button>
+      <paper-radio-button label="Radio Button" id="paper_radio_button"></paper-radio-button>
+      <paper-icon-button icon="menu" id="paper_icon_button"></paper-icon-button>
+    </template>
+
+    <script>
+
+      Polymer('my-element', {
+        
+      });
+
+    </script>
+
+  </polymer-element>
+  </head>
+<body>
+    <my-element> <my-element>
+</body>
+</html>
+
