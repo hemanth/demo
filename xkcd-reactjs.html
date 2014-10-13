@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>xkcd-react</title>
+    <script src="http://fb.me/react-0.11.2.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.11.2.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        figure {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 500px;
+            margin-top: -250px;
+            /* Half the height */
+            margin-left: -250px;
+            /* Half the width */
+        }
+    </style>
+</head>
+
+  <body>
+    <div id="content"></div>
+    <script type="text/jsx">
+      /** @jsx React.DOM */
+      var xckd = React.createClass({
+        getInitialState: function() {
+          return {
+            url : '',
+            title: ''
+          };
+        },
+        componentDidMount: function() {
+          $.get(this.props.source, function(result) {
+            var img = JSON.parse(result);
+            if (this.isMounted()) {
+              this.setState({
+                url: img.url,
+                title: img.title 
+              });
+            }
+          }.bind(this));
+        },
+        render: function() {
+          return (
+            <figure>
+                <a href={this.state.url}><img src={this.state.url} /></a>
+                <figcaption>{this.state.title}</figcaption>
+            </figure>
+          );
+        }
+      });
+
+      React.renderComponent(
+        <xckd source="http://xkcd-imgs.herokuapp.com/" />,
+        document.getElementById('content')
+      );
+    </script>
+  </body>
+</html>
