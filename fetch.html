@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>fetch API demo</title>
+  <meta charset="utf-8">
+  <script src="./bower_components/fetch/fetch.js"></script>
+  <style>
+  * {
+      box-sizing: border-box;
+  }
+  figure {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 500px;
+      height: 500px;
+      margin-top: -250px;
+      margin-left: -250px;
+  }        
+  </style>
+</head>
+<body>
+  <figure>
+    <a><img /></a>
+    <figcaption></figcaption>
+  </figure>  
+  <script>
+    var result = fetch('http://xkcd-imgs.herokuapp.com/');
+    result.then(function(response) {
+      var comic = JSON.parse(response.body)
+      , qs = document.querySelector.bind(document)
+      , link = qs('figure>a')
+      , caption = qs('figure>figcaption')
+      , img = qs('figure>a>img');
+
+      link.href = comic.url;
+      img.src = comic.url;
+      caption.textContent = comic.title;
+    }).catch( function( ex ) {
+      console.log( 'failed', ex )
+    })
+  </script>
+</body>
+</html>
