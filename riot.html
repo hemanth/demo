@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>RIOT example</title>
+    <script src="https://muut.com/riotjs/dist/demo/js/riot.js"></script>
+</head>
+<body>
+
+<timetable>
+  <timer start="0"></timer>
+  <timer start="10"></timer>
+  <timer start="20"></timer>
+</timetable>
+  
+</body>
+<script>
+ riot.tag('timer','<p>Seconds Elapsed: { time }</p>', function(opts){
+   this.time = opts.start || 0;
+   
+   this.tick = (function() {
+     this.update({ time: ++this.time });
+   }).bind(this);
+   
+   var timer = setInterval(this.tick, 1000);
+   
+   this.on('unmount', function() {
+     console.info('timer cleared');
+     clearInterval(timer);
+   });
+ });
+  
+ riot.mount('timer',{ start: 0 });
+</script>
+</html>
